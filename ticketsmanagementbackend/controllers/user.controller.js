@@ -2,7 +2,7 @@ import UserModel from "../models/user.model.js";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const storage = multer.diskStorage({
@@ -287,7 +287,7 @@ export const login = async (req, res) => {
         email: existingUser.email,
       },
       "OqHmkzkKs73DCGJ", // Replace with your secret key
-      { expiresIn: "1h" }     
+      { expiresIn: "1h" }
     );
 
     // Exclude password from response data
