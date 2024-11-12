@@ -1,0 +1,45 @@
+.dashboard-graph2 {
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 8px;
+  padding: 0px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  background-color: #8b7a7a38;
+  color: aliceblue;
+  padding-bottom: 2%;
+  display: flex !important;
+  margin: -3%;
+  position: relative;
+}
+
+.dashboard-chart {
+  grid-column: span 2;
+  height: 300px;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #8b7a7a38;
+  color: aliceblue;
+}
+
+/* Simplified and optimized CSS with Tailwind */
+.dashboard-card {
+  @apply text-center bg-[#8b7a7a38] rounded-lg shadow-md;
+}
+
+.dashboard-chart {
+  @apply bg-[#8b7a7a38] rounded-lg shadow-md;
+}
+
+.pieChart {
+  height: 357px !important;
+  width: 357px !important;
+}
+
+.barGraph {
+  padding: 2%;
+  height: 307px !important;
+  width: 532px !important;
+}

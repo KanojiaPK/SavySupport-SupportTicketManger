@@ -1,0 +1,73 @@
+.main-content2 {
+  transition: margin-left 0.3s ease;
+}
+
+.main-content2.collapsed {
+  margin-left: 60px; /* Adjust based on the collapsed sidebar width */
+  margin-right: 50px; /* Adjust based on the collapsed sidebar width */
+}
+
+.main-content2:not(.collapsed) {
+  margin-left: 2px;
+}
+
+.step-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step-text {
+  margin-bottom: 8px; /* Adjust this to position the text above the circle */
+  white-space: nowrap;
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 4px;
+  width: 116%;
+}
+
+.circle {
+  width: 12px; /* Adjust the size as needed */
+  height: 12px; /* Adjust the size as needed */
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1; /* Ensures that the circle is above the lines */
+  margin: 0 8px; /* Space between the lines and the circle */
+}
+
+.line {
+  height: 2px;
+  background-color: white;
+  flex-grow: 1;
+  z-index: 0; /* Ensures that the lines are behind the circle */
+  width: 181px;
+}
+
+.line.left {
+  margin-right: -8px; /* Adjust to position line correctly */
+}
+
+.line.right {
+  margin-left: -8px; /* Adjust to position line correctly */
+}
+
+.collapsed .step-text {
+  margin-bottom: 4px; /* Adjust this if you need a different spacing when the sidebar is collapsed */
+}
+
+.collapsed .circle {
+  width: 12px; /* Adjust the size if needed */
+  height: 12px; /* Adjust the size if needed */
+}

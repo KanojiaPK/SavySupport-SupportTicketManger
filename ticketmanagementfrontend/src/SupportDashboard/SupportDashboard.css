@@ -1,0 +1,85 @@
+/* SupportDashboard.css */
+.support-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns */
+  gap: 20px;
+  margin-top: 12%;
+  width: 100%;
+  margin-bottom: 4%;
+}
+
+.support-dashboard-card {
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #8b7a7a38;
+  color: aliceblue;
+}
+
+.support-dashboard-chart {
+  grid-column: span 2;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #8b7a7a38;
+  color: aliceblue;
+}
+
+.support-dashboard-graph2 {
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 8px;
+  padding: 0px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  background-color: #8b7a7a38;
+  color: aliceblue;
+  padding-bottom: 2%;
+  display: flex !important;
+  margin: -3%;
+  position: relative;
+}
+
+.graph-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8b7a7a38;
+  border-radius: 8px;
+}
+
+.pieChart {
+  height: 357px !important;
+  width: 357px !important;
+}
+
+.barGraph {
+  padding: 2%;
+  height: 307px !important;
+  width: 580px !important;
+}
+
+.main-content2 {
+  transition: margin-left 0.3s ease;
+}
+
+.main-content2.collapsed {
+  margin-left: 7px; /* Adjust based on the collapsed sidebar width */
+}
+
+.main-content2:not(.collapsed) {
+  margin-left: 0px; /* Adjust based on the expanded sidebar width */
+}
+
+/* For smaller screens, adjust to 2 columns */
+@media (max-width: 1024px) {
+  .support-dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns */
+  }
+}

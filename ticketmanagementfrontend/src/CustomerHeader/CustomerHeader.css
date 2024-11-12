@@ -1,0 +1,30 @@
+.headerCustomer {
+  width: 84%;
+  position: absolute;
+  left: 16%;
+}
+
+.lordIconsclass {
+  width: 46px;
+  height: 250px;
+  position: relative;
+  top: 4px;
+  z-index: 1;
+}
+
+.lordIconsclass {
+  position: relative;
+  z-index: 1; /* Ensure the bell icon is below the badge */
+}
+
+.lordIconsclass + .absolute {
+  z-index: 10; /* Ensure the badge is above the bell icon */
+}
+
+/* You may need to adjust the top and right values to properly position the badge */
+.absoluteMain {
+  top: -2px;
+  right: -8px;
+  background-color: #dd335c;
+  position: absolute;
+}
