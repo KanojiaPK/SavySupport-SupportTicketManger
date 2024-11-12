@@ -5,7 +5,6 @@ import {
   getTickets,
   getTicketsWithUserDetails,
   updateTicket,
-  uploadImage,
 } from "../controllers/tickets.controller.js";
 
 const router = express.Router();
