@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-import userModel from "../models/user.model";
+import userModel from "../models/user.model.js";
 export const auth = async (req, res, next) => {
   try {
     if (req.headers.authorization) {
