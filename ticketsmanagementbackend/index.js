@@ -2,11 +2,13 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routers/user.router.js";
 import ticketsRouter from "./routers/tickets.router.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8003;
-const mongoURI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/supportTicketDB";
+const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/supportTicketDB";
 
 // CORS headers (placed at the top)
 app.use((req, res, next) => {
