@@ -92,7 +92,7 @@ const RegistrationPage = () => {
 
             // Proceed with the API call using Axios
             axios
-              .post(`${apiUrl}/api/v1/user/sign-up", formData`)
+              .post(`${apiUrl}/api/v1/user/sign-up"`, formData)
               .then((response) => {
                 alert(JSON.stringify(response.data, null, 2));
                 setSubmitting(false);

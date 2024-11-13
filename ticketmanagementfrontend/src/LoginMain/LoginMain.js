@@ -13,7 +13,7 @@ const LoginMain = () => {
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const response = await axios.post(`${apiUrl}/api/v1/user/login", values`);
+      const response = await axios.post(`${apiUrl}/api/v1/user/login"`, values);
       const responseData = response.data;
       if (responseData.success) {
         console.log("Token:", responseData.token);
