@@ -5,7 +5,7 @@ export const auth = async (req, res, next) => {
   try {
     if (req.headers.authorization) {
       const token = req.headers.authorization;
-      const decodeToken = jwt.verify(token, "34d2e4255c8e6beb3c42f24dfd7e6da9");
+      const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
       if (decodeToken) {
         const id = decodeToken.id;
         const userdata = await userModel.findOne({ _id: id });
