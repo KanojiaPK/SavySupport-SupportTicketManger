@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production") {
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://savysupport-supportticketmangerfrontend.onrender.com/"
+      "https://savysupport-supportticketmangerfrontend.onrender.com"
     );
   } else {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
