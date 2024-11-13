@@ -4,6 +4,7 @@ import axios from "axios";
 import ticketopen from "../images/ticketopen.svg";
 import ticketclosed from "../images/ticketclosed.svg";
 import ticketinprogress from "../images/ticketinprogress.svg";
+import apiUrl from "../utils/apiURL";
 
 const SupportTicketAdvance = ({ ticket, setTicket }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,7 +86,7 @@ const SupportTicketAdvance = ({ ticket, setTicket }) => {
       const userId = userData._id;
 
       const response = await axios.put(
-        `http://localhost:8003/api/v1/tickets/update-ticket/${ticket.data._id}`,
+        `${apiUrl}/api/v1/tickets/update-ticket/${ticket.data._id}`,
         JSON.stringify({ assignedagent: userId }),
         {
           headers: {
@@ -98,7 +99,7 @@ const SupportTicketAdvance = ({ ticket, setTicket }) => {
         setIsModalOpen(false);
 
         const ticketResponse = await axios.get(
-          `http://localhost:8003/api/v1/tickets/get-ticket/${ticket.data._id}`
+          `${apiUrl}/api/v1/tickets/get-ticket/${ticket.data._id}`
         );
 
         if (ticketResponse.status === 200) {
@@ -122,7 +123,7 @@ const SupportTicketAdvance = ({ ticket, setTicket }) => {
       setIsLoading(true);
 
       const response = await axios.put(
-        `http://localhost:8003/api/v1/tickets/update-ticket/${ticket.data._id}`,
+        `${apiUrl}/api/v1/tickets/update-ticket/${ticket.data._id}`,
         JSON.stringify({ assignedagent: null }),
         {
           headers: {
@@ -135,7 +136,7 @@ const SupportTicketAdvance = ({ ticket, setTicket }) => {
         setIsModalOpen(false);
 
         const ticketResponse = await axios.get(
-          `http://localhost:8003/api/v1/tickets/get-ticket/${ticket.data._id}`
+          `${apiUrl}/api/v1/tickets/get-ticket/${ticket.data._id}`
         );
 
         if (ticketResponse.status === 200) {
@@ -159,7 +160,7 @@ const SupportTicketAdvance = ({ ticket, setTicket }) => {
       setIsLoading(true);
 
       const response = await axios.put(
-        `http://localhost:8003/api/v1/tickets/update-ticket/${ticket.data._id}`,
+        `${apiUrl}/api/v1/tickets/update-ticket/${ticket.data._id}`,
         JSON.stringify({ status }),
         {
           headers: {
@@ -172,7 +173,7 @@ const SupportTicketAdvance = ({ ticket, setTicket }) => {
         setIsStatusModalOpen(false);
 
         const ticketResponse = await axios.get(
-          `http://localhost:8003/api/v1/tickets/get-ticket/${ticket.data._id}`
+          `${apiUrl}/api/v1/tickets/get-ticket/${ticket.data._id}`
         );
 
         if (ticketResponse.status === 200) {

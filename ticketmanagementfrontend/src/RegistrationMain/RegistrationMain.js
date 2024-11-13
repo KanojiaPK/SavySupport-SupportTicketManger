@@ -2,6 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import apiUrl from "../utils/apiURL";
 
 const RegistrationPage = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -91,7 +92,7 @@ const RegistrationPage = () => {
 
             // Proceed with the API call using Axios
             axios
-              .post("http://localhost:8003/api/v1/user/sign-up", formData)
+              .post(`${apiUrl}/api/v1/user/sign-up", formData`)
               .then((response) => {
                 alert(JSON.stringify(response.data, null, 2));
                 setSubmitting(false);

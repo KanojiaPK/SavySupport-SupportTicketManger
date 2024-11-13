@@ -6,6 +6,7 @@ import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import logo from "../images/Savy (1).png";
 import "./CustomerSideBar.css";
+import apiUrl from "../utils/apiURL"
 
 const CustomerSideBar = ({ isCollapsed, toggleSidebar, onMenuClick }) => {
   const [userdata, setUserdata] = useState({
@@ -62,7 +63,7 @@ const CustomerSideBar = ({ isCollapsed, toggleSidebar, onMenuClick }) => {
                 <img
                   alt="profile-pic"
                   className="profile-picture"
-                  src={`http://localhost:8003/uploads/${userdata.image}`}
+                  src={`${apiUrl}/uploads/${userdata.image}`}
                 />
                 <span className="profile-name">
                   {userdata.firstname} {userdata.lastname}

@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./CustomerForm.css";
+import apiUrl from "../utils/apiURL";
 
 const CustomerForm = () => {
   const navigate = useNavigate();
@@ -104,7 +105,7 @@ const CustomerForm = () => {
             };
 
             const response = await axios.post(
-              "http://localhost:8003/api/v1/tickets/add-tickets",
+              `${apiUrl}/api/v1/tickets/add-tickets`,
               formData
             );
             // alert(JSON.stringify(response.data, null, 2));

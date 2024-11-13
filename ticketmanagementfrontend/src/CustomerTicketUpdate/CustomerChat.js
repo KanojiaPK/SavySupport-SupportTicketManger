@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CustomerChat.css";
+import apiUrl from "../utils/apiURL";
 
 export default function CustomerChat({ ticket, ticketId, setTicket }) {
   const [inputText, setInputText] = useState("");
@@ -31,12 +32,9 @@ export default function CustomerChat({ ticket, ticketId, setTicket }) {
 
     try {
       // Update the ticket with the new message
-      await axios.put(
-        `http://localhost:8003/api/v1/tickets/update-ticket/${ticketId}`,
-        {
-          usermsgs: [...ticket.data.usermsgs, newMessage], // Append new message to existing usermsgs
-        }
-      );
+      await axios.put(`${apiUrl}/api/v1/tickets/update-ticket/${ticketId}`, {
+        usermsgs: [...ticket.data.usermsgs, newMessage], // Append new message to existing usermsgs
+      });
 
       // Update local state with the new message
       setChatMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -135,7 +133,7 @@ export default function CustomerChat({ ticket, ticketId, setTicket }) {
         <div className="flex items-center space-x-2">
           {agent ? (
             <img
-              src={`http://localhost:8003/uploads/${agent.image}`}
+              src={`${apiUrl}/uploads/${agent.image}`}
               alt="profilepic"
               className="w-10 h-10 rounded-full"
             />
@@ -182,7 +180,7 @@ export default function CustomerChat({ ticket, ticketId, setTicket }) {
       </div>
 
       <div className="flex items-center p-2 bg-[#8b7a7a38]">
-      {/* /rounded-b-lg maybe missing  */}
+        {/* /rounded-b-lg maybe missing  */}
         <input
           type="text"
           placeholder="Type a message..."

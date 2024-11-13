@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./SupportChat.css";
 import SupportTicketAdvance from "./SupportTicketAdvance";
-
+import apiUrl from "../utils/apiURL";
 export default function SupportChat({ ticket, ticketId, setTicket }) {
   const [supportInputText, setSupportInputText] = useState("");
   const [supportChatMessages, setSupportChatMessages] = useState([]);
@@ -32,18 +32,15 @@ export default function SupportChat({ ticket, ticketId, setTicket }) {
 
     try {
       // Update the support messages of the ticket
-      await axios.put(
-        `http://localhost:8003/api/v1/tickets/update-ticket/${ticketId}`,
-        {
-          supportmsgs: [...ticket.data.supportmsgs, newMessage], // Append new message to existing supportmsgs
-          updated: Date.now(), // Update the 'updated' field to the current timestamp
-          updatedby: ticket.data.assignedagent
-            ? ticket.data.assignedagent.firstname +
-              " " +
-              ticket.data.assignedagent.lastname // Use agent's first name if available
-            : "Support", // If agent is not assigned, set 'updatedby' to 'Support'
-        }
-      );
+      await axios.put(`${apiUrl}/api/v1/tickets/update-ticket/${ticketId}`, {
+        supportmsgs: [...ticket.data.supportmsgs, newMessage], // Append new message to existing supportmsgs
+        updated: Date.now(), // Update the 'updated' field to the current timestamp
+        updatedby: ticket.data.assignedagent
+          ? ticket.data.assignedagent.firstname +
+            " " +
+            ticket.data.assignedagent.lastname // Use agent's first name if available
+          : "Support", // If agent is not assigned, set 'updatedby' to 'Support'
+      });
 
       // Update the local state with the new message
       setSupportChatMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -162,7 +159,7 @@ export default function SupportChat({ ticket, ticketId, setTicket }) {
           <div className="flex items-center space-x-2">
             {agent ? (
               <img
-                src={`http://localhost:8003/uploads/${ticket.data.owner.image}`}
+                src={`${apiUrl}/uploads/${ticket.data.owner.image}`}
                 alt="profilepic"
                 className="w-10 h-10 rounded-full"
               />

@@ -4,6 +4,7 @@ import { Bar, Pie } from "react-chartjs-2";
 import "chart.js/auto";
 import "./SupportDashboard.css";
 import SupportTickets from "../SupportTickets/SupportTickets";
+import apiUrl from "../utils/apiURL";
 
 const SupportDashboard = ({ isSidebarCollapsed }) => {
   const [tickets, setTickets] = useState([]);
@@ -12,7 +13,7 @@ const SupportDashboard = ({ isSidebarCollapsed }) => {
     const fetchTickets = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8003/api/v1/tickets/get-ticketsWithusers"
+          `${apiUrl}/api/v1/tickets/get-ticketsWithusers`
         );
         setTickets(response.data.data);
       } catch (error) {

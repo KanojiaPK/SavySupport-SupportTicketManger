@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom"; // Import useParams
 import CustomerChat from "./CustomerChat";
+import apiUrl from "../utils/apiURL";
 
 const CustomerTicketUpdate = () => {
   const [ticket, setTicket] = useState(null); // Initialize ticket state to null
@@ -11,7 +12,7 @@ const CustomerTicketUpdate = () => {
     const fetchTicket = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8003/api/v1/tickets/get-ticket/${ticketId}`
+          `${apiUrl}/api/v1/tickets/get-ticket/${ticketId}`
         );
         setTicket(response.data);
       } catch (error) {

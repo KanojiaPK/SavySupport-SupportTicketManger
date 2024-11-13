@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import apiUrl from "../utils/apiURL";
 
 import CustomerTickets from "../CustomerTickets/CustomerTickets";
 import { Bar, Pie } from "react-chartjs-2";
@@ -16,7 +17,7 @@ const CustomerDashBoard = () => {
     const fetchTickets = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8003/api/v1/tickets/get-ticketsWithusers"
+          `${apiUrl}/api/v1/tickets/get-ticketsWithusers`
         );
         setTickets(response.data.data);
       } catch (error) {
