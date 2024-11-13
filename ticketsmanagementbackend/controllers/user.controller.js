@@ -286,7 +286,7 @@ export const login = async (req, res) => {
         id: existingUser._id,
         email: existingUser.email,
       },
-      "OqHmkzkKs73DCGJ", // Replace with your secret key
+      process.env.JWT_SECRET, // Replace with your secret key
       { expiresIn: "1h" }
     );
 
