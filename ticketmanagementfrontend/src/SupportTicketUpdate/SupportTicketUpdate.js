@@ -1,3 +1,5 @@
+
+// SupportTicketUpdate.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -23,8 +25,7 @@ const SupportTicketUpdate = () => {
     fetchTicket();
   }, [ticketId]);
 
-  console.log(ticketId);
-  console.log(ticket);
+  const isAgentAssigned = ticket?.data?.assignedagent !== null;
 
   return (
     <div className="h-full">
@@ -34,6 +35,7 @@ const SupportTicketUpdate = () => {
             ticket={ticket}
             ticketId={ticketId}
             setTicket={setTicket}
+            isAgentAssigned={isAgentAssigned}
           />
         </div>
       ) : (
